@@ -1,3 +1,4 @@
 comment_templates.py
 others/*
-__pycache__/*
+__pycache__/
+*/__pycache__/
