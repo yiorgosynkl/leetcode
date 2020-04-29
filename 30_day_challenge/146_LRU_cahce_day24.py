@@ -4,7 +4,7 @@
 # Problem link      : https://leetcode.com/problems/lru-cache/
 ################################################################
 
-lass LRUCache:
+class LRUCache:
 
     def __init__(self, capacity: int):
         self.dic = {}
