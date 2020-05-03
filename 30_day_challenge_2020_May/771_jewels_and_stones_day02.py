@@ -1,6 +1,6 @@
 ################################################################
 # Author            : yiorgosynkl (find me in Github: https://github.com/yiorgosynkl)
-# Date created      : 20200501
+# Date created      : 20200502
 # Problem link      : https://leetcode.com/problems/jewels-and-stones/
 ################################################################
 
