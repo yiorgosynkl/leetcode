@@ -15,5 +15,12 @@ class Solution:
         for i in reversed(range(m-1)):
             for j in reversed(range(n-1)):
                 dungeon[i][j] = min(max(0,dungeon[i][j+1] - dungeon[i][j]), max(0,dungeon[i+1][j] - dungeon[i][j]))
-        print(dungeon)
         return dungeon[0][0]+1
+    
+    # dungeon[i][j+1] : energy that is needed to reach princess (>=0)
+    # dungeon[i][j]: amount of energy (given or taken) in the cell
+    # dungeon[i][j+1] - dungeon[i][j]: energy that is needed to reach princess (negative means that we have so much energy
+    #                                   that we could even start "dead" and reach the princess)
+    # max(0,dungeon[i][j+1] - dungeon[i][j]): energy that is needed to reach princess (>=0)
+    # min(max(0,dungeon[i][j+1] - dungeon[i][j]), max(0,dungeon[i+1][j] - dungeon[i][j])):
+    #           selecting the least possible of energy to start (that still get us to the princess)
