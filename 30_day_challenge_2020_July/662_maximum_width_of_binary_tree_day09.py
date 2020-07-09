@@ -1,6 +1,6 @@
 ################################################################
 # Author            : yiorgosynkl (find me in Github: https://github.com/yiorgosynkl)
-# Date created      : 20200708
+# Date created      : 20200709
 # Problem link      : https://leetcode.com/problems/maximum-width-of-binary-tree/
 ################################################################
 
