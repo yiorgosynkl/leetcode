@@ -43,15 +43,12 @@ class Solution:
     
     # iterative approach 
     def myPow(self, x, n):
-        if not n:
-            return 1
         if n < 0:
-            return 1 / self.myPow(x, -n)
+            x, n = 1/x, -n
         ans = 1
         while n > 0: # the 1s in n binary tell us which x^i to multiply to
             if n & 1: # last bit is 1
                 ans *= x
-            print(ans, x, n)
             x *= x # increase the base so the loop goes x, x^2, x^4, ...
-            n = n >> 1
+            n >>= 1
         return ans
