@@ -1,7 +1,7 @@
 ################################################################
 # Author            : yiorgosynkl (find me in Github: https://github.com/yiorgosynkl)
 # Date created      : 20200916
-# Problem link      : https://leetcode.com/problems/insert-interval/
+# Problem link      : https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/
 ################################################################
 
 from itertools import combinations
