@@ -24,3 +24,14 @@ class Solution:
             tmp.next = ListNode(c)
             tmp = tmp.next
         return head.next
+
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        s, c = 0, 0 # sum, carry
+        head = ListNode()
+        tmp = head
+        while l1 or l2 or c:
+            s = (l1.val if l1 else 0) + (l2.val if l2 else 0) + c
+            c, s = divmod(s, 10)
+            tmp.next = ListNode(s)
+            l1, l2, tmp = (l1.next if l1 else l1), (l2.next if l2 else l2), tmp.next
+        return head.next
