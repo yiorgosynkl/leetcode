@@ -14,10 +14,32 @@ def inorder(root): # dfs
 def postorder(root): # dfs
     return dfs(root.left) + dfs(root.right) + [root.val] if root else []
 
-from collections import defaultdict
+# binary tree bfs
+from collections import deque
+
+def bfs(root: 'Node'):
+    lvl = deque([root] if root else []) # nodes of previous and current level [list]
+    while lvl:
+        nxt = deque([]) # nodes of next level
+        while lvl:
+            node = lvl.popleft()
+            if node.left: nxt.append(node.left)
+            if node.right: nxt.append(node.right)
+            ans.append(node.val)
+        lvl = nxt
+    return ans
+
+def dfs(root: 'Node'):
+    if root:
+        dfs(root.right)
+        dfs(root.left)
+    print(root.val)
+    return ans
 
 # create graph from list of edges
 # number of nodes, edges between nodes
+from collections import defaultdict
+
 def create_adj(n, edges):
     adj = defaultdict(set)
     for i, j in edges:
