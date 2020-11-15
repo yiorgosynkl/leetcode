@@ -19,7 +19,6 @@ class Solution:
     def connect(self, root: 'Node') -> 'Node':
         if root == None: return None
         lvl = deque([root]) # nodes of previous and current level [list]
-        ans = []
         while lvl:
             nxt = deque([]) # nodes of next level
             prv_node = None
