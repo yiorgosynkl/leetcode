@@ -58,6 +58,36 @@ class Solution:
                 ans += pivot
         return ans
 
+    # cleaner solution
+    def search(self, nums: List[int], target: int) -> int:
+        # find pivot and return the original sorted array
+        def sortBack(nums):
+            le, ri = 0, len(nums) - 1
+            while le < ri: # find index of smallest num, and rotate back to original array
+                mid = (le + ri) // 2 
+                if nums[mid] <= nums[ri]: # = is important because of duplicates (move right pointer as far left as possible)
+                    ri = mid
+                else: # nums[mid] > nums[le]
+                    le = mid + 1
+            return nums[le:] + nums[:le], le
+        # binary search for if target exists
+        def binSearch(nums, target):
+            lo, hi = 0, len(nums) - 1
+            while lo <= hi:
+                mid = (lo + hi) // 2
+                if nums[mid] == target:
+                    return mid
+                elif nums[mid] < target:
+                    lo = mid + 1
+                else:
+                    hi = mid - 1
+            return -1
+        nums, rot = sortBack(nums) # sorted nums and rotation distance
+        ans = binSearch(nums, target)
+        return (ans + rot) % len(nums) if ans >= 0 else -1
+
+
+
 # ------------------ idea nubmer 1 -----------------------
 
 # Let's say nums looks like this: [12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
