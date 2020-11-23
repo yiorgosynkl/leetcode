@@ -1,7 +1,7 @@
 ################################################################
 # Author            : yiorgosynkl (find me in Github: https://github.com/yiorgosynkl)
 # Date created      : 20201123
-# Problem link      : https://leetcode.com/problems/house-robber-iii
+# Problem link      : https://leetcode.com/problems/house-robber-iii/
 ################################################################
 
 # Definition for a binary tree node.
