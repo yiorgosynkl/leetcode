@@ -63,3 +63,13 @@ class Solution:
     #         for lo, hi in zip(range(n-gap), range(gap, n)): # starting (lo) and ending (hi) ballons are alive
     #             dp[(lo,hi)] = max(dp[(lo,m)] + dp[(m,hi)] + nums[lo]*nums[m]*nums[hi] for m in range(lo+1, hi)) # m is the middle last-bursted ballon
     #     return dp[(0,n-1)]
+
+    # @DBabichev, top-down recursive dp using lru_cache for the function 
+    def maxCoins(self, nums):
+        A = [1] + nums + [1]
+        
+        @lru_cache(None)
+        def dfs(i, j):
+            return max([A[i]*A[k]*A[j] + dfs(i,k) + dfs(k,j) for k in range(i+1, j)] or [0])
+        
+        return dfs(0, len(A) - 1)
