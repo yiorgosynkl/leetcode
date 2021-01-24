@@ -15,6 +15,7 @@ import bisect
 from heapq import heappush, heappop, heapreplace, heapify
 
 class Solution:
+    # O(k*n), n total nodes, k for the comparisons
     # def mergeKLists(self, lists: List[ListNode]) -> ListNode:
     #     ptr = head = ListNode()
     #     k = len(lists)
@@ -30,7 +31,7 @@ class Solution:
     #         lists[mi] = lists[mi].next
     #     return head.next
     
-    # # keep order using heap
+    # # keep order using heap O(n*logk), n total nodes, logk for the comparisons
     # def mergeKLists(self, lists):
     #     dummy = node = ListNode(0)
     #     h = [(n.val, i, n) for i, n in enumerate(lists) if n]
@@ -45,7 +46,7 @@ class Solution:
     #         node = node.next
     #     return dummy.next
 
-    # recursive divide and conquer
+    # recursive divide and conquer, O(n*logk)
     def mergeKLists(self, lists):
         def merge(l, r):
             dummy = p = ListNode()
