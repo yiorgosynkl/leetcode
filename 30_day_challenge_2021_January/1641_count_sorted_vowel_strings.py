@@ -45,21 +45,21 @@ class Solution:
 #             return seen[n, k]
 #         return dp(n, 5)
     
-#     # bottom up
-#     def countVowelStrings(self, n):
-#         dp = [[1] * 6] + [[0] * 6 for i in xrange(n)]
-#         for i in xrange(1, n + 1):
-#             for k in range(1, 6):
-#                 dp[i][k] = dp[i][k - 1] + dp[i - 1][k]
-#         return dp[n][5]
+    # # bottom up
+    # def countVowelStrings(self, n):
+    #     dp = [[1] * 5] + [ [1]+[0]*4 for i in range(n)]
+    #     for i in range(1, n+1):
+    #         for k in range(1, 5):
+    #             dp[i][k] = dp[i][k - 1] + dp[i - 1][k]
+    #     return dp[n][4]
     
-#     # bottom up, less memory    
-#     def countVowelStrings(self, n):
-#         dp = [0] + [1] * 5
-#         for i in range(1, n + 1):
-#             for k in range(1, 6):
-#                 dp[k] += dp[k - 1]
-#         return dp[5]
+    # bottom up, less memory    
+    def countVowelStrings(self, n):
+        dp = [1] * 5 
+        for i in range(1, n+1):
+            for k in range(1, 5):
+                dp[k] += dp[k - 1]
+        return dp[4]
 
 #     def countVowelStrings(self, n: int) -> int:
 #         dp = [1] * 5
@@ -73,5 +73,3 @@ class Solution:
     # # (leftmost team of 0s will get letter 'a', ..., rightmost team of 0s will get letter 'u')
     # def countVowelStrings(self, n):
     #     return (n + 1) * (n + 2) * (n + 3) * (n + 4) / 24
-    def countVowelStrings(self, n: int) -> int:
-        return comb(n + 4, 4)

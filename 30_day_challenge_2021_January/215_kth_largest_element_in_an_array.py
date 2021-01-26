@@ -29,8 +29,8 @@ class Solution:
                 return kthSmallest(arr[:mid], k)
             else: # (mid + 1 < k):
                 return kthSmallest(arr[mid+1:], k - (mid + 1))
-            
-        nums = random.shuffle(nums) # shuffle list to guarantee O(N)
+        
+        random.shuffle(nums) # shuffle list to guarantee O(N)
         return kthSmallest(nums, len(nums) - k + 1)
 
 #     # quickselect (code from geekforgeeks)
@@ -132,25 +132,24 @@ class Solution:
 #         # convert the kth largest to smallest
 #         return self.findKthSmallest(nums, len(nums)+1-k)
 
-#     def findKthSmallest(self, nums, k):
-#         if nums:
-#             pos = self.partition(nums, 0, len(nums)-1)
-#             if k > pos+1:
-#                 return self.findKthSmallest(nums[pos+1:], k-pos-1)
-#             elif k < pos+1:
-#                 return self.findKthSmallest(nums[:pos], k)
-#             else:
-#                 return nums[pos]
+    # def findKthSmallest(self, nums, k):
+    #     # choose the right-most element as pivot   
+    #     def partition(nums, l, r):
+    #         low = l
+    #         while l < r:
+    #             if nums[l] < nums[r]:
+    #                 nums[l], nums[low] = nums[low], nums[l]
+    #                 low += 1
+    #             l += 1
+    #         nums[low], nums[r] = nums[r], nums[low]
+    #         return low
 
-#     # choose the right-most element as pivot   
-#     def partition(self, nums, l, r):
-#         low = l
-#         while l < r:
-#             if nums[l] < nums[r]:
-#                 nums[l], nums[low] = nums[low], nums[l]
-#                 low += 1
-#             l += 1
-#         nums[low], nums[r] = nums[r], nums[low]
-#         return low
-    
+    #     if nums:
+    #         pos = partition(nums, 0, len(nums)-1)
+    #         if k > pos+1:
+    #             return self.findKthSmallest(nums[pos+1:], k-pos-1)
+    #         elif k < pos+1:
+    #             return self.findKthSmallest(nums[:pos], k)
+    #         else:
+    #             return nums[pos]
         
